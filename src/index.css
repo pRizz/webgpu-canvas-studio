@@ -17,7 +17,7 @@
     --popover: 220 20% 10%;
     --popover-foreground: 160 100% 70%;
 
-    --primary: 170 100% 50%;
+    --primary: 185 100% 50%;
     --primary-foreground: 220 20% 8%;
 
     --secondary: 220 20% 18%;
@@ -34,14 +34,14 @@
 
     --border: 160 50% 20%;
     --input: 220 20% 15%;
-    --ring: 170 100% 50%;
+    --ring: 185 100% 50%;
 
     --radius: 0.25rem;
 
     --font-display: 'JetBrains Mono', 'Fira Code', monospace;
     --font-body: 'JetBrains Mono', 'Fira Code', monospace;
 
-    --glow-primary: 0 0 20px hsl(170 100% 50% / 0.3);
+    --glow-primary: 0 0 20px hsl(185 100% 50% / 0.3);
     --glow-accent: 0 0 20px hsl(280 100% 65% / 0.3);
   }
 
