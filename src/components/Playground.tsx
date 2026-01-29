@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Save, ArrowLeft, Code, X } from 'lucide-react';
+import { Save, ArrowLeft, Code, X, FileDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -140,6 +140,26 @@ export const Playground = () => {
     });
   }, [deleteCreation, currentCreationId]);
 
+  const handleExportCode = useCallback(() => {
+    const name = currentExampleName || 
+      (currentCreationId && creations.find(c => c.id === currentCreationId)?.name) ||
+      'shader';
+    const filename = `${name.toLowerCase().replace(/[^a-z0-9]/g, '-')}.wgsl`;
+    
+    const blob = new Blob([currentCode], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+    
+    toast({
+      title: 'Exported!',
+      description: `Code saved as "${filename}"`,
+    });
+  }, [deleteCreation, currentCreationId]);
+
   const handleBackToGallery = useCallback(() => {
     setViewMode('gallery');
     setShowEditor(false);
@@ -198,6 +218,15 @@ export const Playground = () => {
               >
                 <Code className="w-4 h-4 mr-2" />
                 {showEditor ? 'Hide Code' : 'Show Code'}
+              </Button>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={handleExportCode}
+                className="bg-black/50 hover:bg-black/70 text-white border-0"
+              >
+                <FileDown className="w-4 h-4 mr-2" />
+                Export
               </Button>
               <Button
                 variant="secondary"
@@ -261,10 +290,16 @@ export const Playground = () => {
                      'New Shader'}
                   </span>
                 </div>
-                <Button size="sm" onClick={handleSave}>
-                  <Save className="w-4 h-4 mr-2" />
-                  Save
-                </Button>
+                <div className="flex gap-2">
+                  <Button size="sm" variant="outline" onClick={handleExportCode}>
+                    <FileDown className="w-4 h-4 mr-2" />
+                    Export
+                  </Button>
+                  <Button size="sm" onClick={handleSave}>
+                    <Save className="w-4 h-4 mr-2" />
+                    Save
+                  </Button>
+                </div>
               </div>
               <CodeEditor
                 code={currentCode}
