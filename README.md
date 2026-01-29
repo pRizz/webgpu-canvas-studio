@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# WebGPU Canvas Studio
 
-## Project info
+A creative coding playground for writing and experimenting with WebGPU shaders in real-time.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![WebGPU Canvas Studio](https://gpu-canvas-play.lovable.app/og-image.png)
 
-## How can I edit this code?
+## 🎨 Features
 
-There are several ways of editing your application.
+- **Live WGSL Shader Editor** — Write WebGPU shaders with syntax highlighting and see results instantly
+- **Gallery of Examples** — Browse pre-made shaders across categories:
+  - Visual Shaders (plasma, gradients, patterns)
+  - 3D Graphics (raymarching, geometric shapes)
+  - Particle Systems (fire, galaxy simulations)
+- **Live Previews** — Each gallery card renders its shader in real-time
+- **Fork & Save** — Fork any example to create your own version, saved locally
+- **Multiple Themes** — Choose from Dark & Technical, Modern & Clean, or Colorful & Playful
+- **Performance Stats** — Real-time FPS counter and render time display
 
-**Use Lovable**
+## 🚀 Live Demo
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+**[gpu-canvas-play.lovable.app](https://gpu-canvas-play.lovable.app)**
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Technologies
 
-**Use your preferred IDE**
+- **React** + **TypeScript** — UI framework
+- **Vite** — Build tool
+- **WebGPU** — Next-generation graphics API
+- **WGSL** — WebGPU Shading Language
+- **Monaco Editor** — Code editor (VS Code's editor)
+- **Tailwind CSS** + **shadcn/ui** — Styling and components
+- **Framer Motion** — Animations
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## 💻 Local Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/pRizz/webgpu-canvas-studio.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project
+cd webgpu-canvas-studio
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Browser Support
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+WebGPU is supported in:
+- Chrome 113+ (recommended)
+- Edge 113+
+- Firefox Nightly (with flags)
+- Safari Technology Preview
 
-**Use GitHub Codespaces**
+If WebGPU is not available, the app displays a fallback message with browser recommendations.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📝 License
 
-## What technologies are used for this project?
+Open source — feel free to fork and build upon it!
 
-This project is built with:
+## 👤 Author
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Made by [Peter Ryszkiewicz](https://www.linkedin.com/in/peter-ryszkiewicz/) with [Lovable](https://lovable.dev)
 
-## How can I deploy this project?
+## 🔗 Links
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Live App**: [gpu-canvas-play.lovable.app](https://gpu-canvas-play.lovable.app)
+- **Source Code**: [github.com/pRizz/webgpu-canvas-studio](https://github.com/pRizz/webgpu-canvas-studio)
+- **Twitter/X**: [@pryszkie](https://x.com/pryszkie)
+- **LinkedIn**: [Peter Ryszkiewicz](https://www.linkedin.com/in/peter-ryszkiewicz/)

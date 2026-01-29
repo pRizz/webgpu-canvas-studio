@@ -18,7 +18,7 @@ export const FooterSection = (): JSX.Element => {
         </a>
         {" · "}
         <a
-          href="https://github.com/pRizz/GPU-Canvas-Play"
+          href="https://github.com/pRizz/webgpu-canvas-studio"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-primary transition-colors"
