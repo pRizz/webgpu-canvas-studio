@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { UserCreation } from '@/types/webgpu';
+import { CanvasPreview } from './CanvasPreview';
 import { formatDistanceToNow } from 'date-fns';
 
 interface CreationCardProps {
@@ -32,11 +33,14 @@ export const CreationCard = ({ creation, onSelect, onRename, onDelete }: Creatio
   return (
     <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer">
       <div
-        className="relative aspect-video bg-muted overflow-hidden"
+        className="relative aspect-video bg-black overflow-hidden"
         onClick={() => !isEditing && onSelect(creation)}
       >
-        {/* Code preview background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-card via-muted to-card flex items-center justify-center">
+        {/* Live WebGPU canvas preview */}
+        <CanvasPreview code={creation.code} className="absolute inset-0" />
+        
+        {/* Fallback code preview background - shown behind canvas */}
+        <div className="absolute inset-0 bg-gradient-to-br from-card via-muted to-card flex items-center justify-center -z-10">
           <pre className="text-[6px] text-muted-foreground/40 overflow-hidden p-2 max-h-full font-mono">
             {creation.code.slice(0, 500)}
           </pre>
