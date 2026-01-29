@@ -58,8 +58,16 @@ export const useWebGPU = ({ code, playback }: UseWebGPUOptions): UseWebGPUReturn
       const device = await adapter.requestDevice();
       deviceRef.current = device;
 
-      const adapterInfo = await adapter.requestAdapterInfo();
-      const info = `${adapterInfo.vendor || 'Unknown'} - ${adapterInfo.architecture || 'Unknown'}`;
+      // requestAdapterInfo may not be available in all browsers
+      let info = 'WebGPU';
+      try {
+        if (adapter.requestAdapterInfo) {
+          const adapterInfo = await adapter.requestAdapterInfo();
+          info = `${adapterInfo.vendor || 'GPU'} - ${adapterInfo.architecture || 'WebGPU'}`;
+        }
+      } catch {
+        // Fallback if requestAdapterInfo fails
+      }
       setGpuInfo(info);
       setStats(prev => ({ ...prev, gpuInfo: info }));
 
