@@ -91,15 +91,15 @@ export const Canvas = ({
         </div>
       )}
 
-      {/* Stats Overlay */}
+      {/* Stats Overlay - positioned to avoid floating controls */}
       {showStats && !error && (
         <div
           className={cn(
-            'absolute top-3 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-2 text-xs font-mono transition-opacity duration-300',
+            'absolute top-16 left-3 bg-black/60 backdrop-blur-sm rounded-md px-3 py-2 text-xs font-mono transition-opacity duration-300',
             showControls ? 'opacity-100' : 'opacity-0'
           )}
         >
-          <div className="flex items-center gap-4 text-foreground/80">
+          <div className="flex items-center gap-4 text-white/80">
             <span>FPS: {stats.fps}</span>
             <span>Frame: {stats.frameTime.toFixed(2)}ms</span>
             {stats.gpuInfo && <span className="hidden sm:inline">{stats.gpuInfo}</span>}
