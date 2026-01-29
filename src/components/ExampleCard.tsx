@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ShaderExample } from '@/types/webgpu';
+import { CanvasPreview } from './CanvasPreview';
 import { cn } from '@/lib/utils';
 
 interface ExampleCardProps {
@@ -35,17 +36,20 @@ export const ExampleCard = ({ example, onSelect, onFork }: ExampleCardProps) => 
   return (
     <Card className="group overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 glow-primary cursor-pointer">
       <div
-        className="relative aspect-video bg-muted overflow-hidden"
+        className="relative aspect-video bg-black overflow-hidden"
         onClick={() => onSelect(example)}
       >
-        {/* Placeholder gradient background - could be replaced with actual thumbnail */}
+        {/* Live WebGPU canvas preview */}
+        <CanvasPreview code={example.code} className="absolute inset-0" />
+        
+        {/* Fallback gradient if WebGPU fails - shown behind canvas */}
         <div className={cn(
-          'absolute inset-0 flex items-center justify-center',
+          'absolute inset-0 flex items-center justify-center -z-10',
           example.category === 'shader' && 'bg-gradient-to-br from-primary/30 via-accent/20 to-secondary',
           example.category === '3d' && 'bg-gradient-to-br from-accent/30 via-primary/20 to-muted',
           example.category === 'particles' && 'bg-gradient-to-br from-destructive/30 via-accent/20 to-primary/10'
         )}>
-          <Icon className="w-12 h-12 text-foreground/20 group-hover:scale-110 transition-transform" />
+          <Icon className="w-12 h-12 text-foreground/20" />
         </div>
         
         {/* Hover overlay */}
