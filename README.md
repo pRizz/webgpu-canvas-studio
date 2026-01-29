@@ -2,7 +2,7 @@
 
 A creative coding playground for writing and experimenting with WebGPU shaders in real-time.
 
-![WebGPU Canvas Studio](https://gpu-canvas-play.lovable.app/og-image.png)
+![WebGPU Canvas Studio](https://gpu-canvas-play.lovable.app/social-preview.png)
 
 ## 🎨 Features
 
