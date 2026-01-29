@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Sparkles, Box, Flame, FolderHeart } from 'lucide-react';
+import { FooterSection } from './FooterSection';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ExampleCard } from './ExampleCard';
 import { CreationCard } from './CreationCard';
@@ -149,6 +150,8 @@ export const Gallery = ({
           )}
         </TabsContent>
       </Tabs>
+      
+      <FooterSection />
     </div>
   );
 };
